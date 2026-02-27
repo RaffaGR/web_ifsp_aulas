@@ -1,11 +1,11 @@
 # Node.js dependencies
-/node_modules/
+node_modules/
 
 # TypeScript build output
-/dist/
-/build/
-/lib/
-/out/
+dist/
+build/
+lib/
+out/
 
 /*.js
 /*.js.map
