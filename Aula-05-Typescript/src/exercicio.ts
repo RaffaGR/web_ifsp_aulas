@@ -17,8 +17,14 @@ function elevar(n1: number, n2: number) {
 }
 
 // 3
-function dobrarNumeros(aN: number[]): number[] {
-    return aN.map(numero => numero * 2);
+// function dobrarNumeros(aN: number[]): number[] {
+//     return aN.map(numero => numero * 2);
+// }
+
+function dobrarNumeros(aNs: number[]): number[] {
+    return aNs.filter((numero, index, array) => {
+        array[index] = numero * 2;
+    });
 }
 
 /* function dobrarNumerosOPT2(aN: number[]): number[] {
@@ -48,9 +54,42 @@ const funcionarios: Funcionario[] = [
 const cargoDesejado: string = " Desenvolvedor ";
 
 function filtroCargo(funs: Funcionario[]): Funcionario[] {
-    return funs.filter( fun => fun.cargo == " Desenvolvedor ");
+    return funs.filter(fun => fun.cargo == " Desenvolvedor ");
 }
 
 const cargosFiltrados = filtroCargo(funcionarios);
 
 // 5 
+type Aluno = {
+    nome: string;
+    nota: number;
+};
+const alunos: Aluno[] = [
+    { nome: " Alice ", nota: 8 },
+    { nome: " Bruno ", nota: 5 },
+    { nome: " Carla ", nota: 7 },
+    { nome: " Daniel ", nota: 6 }
+];
+
+
+function filtroNota(aNotas: Aluno[]): Aluno[] {
+    return aNotas.filter(aNota => aNota.nota >= 7);
+}
+
+// 6
+type Evento = {
+    nome: string;
+    mes: string;
+};
+
+const eventos: Evento[] = [
+    { nome: " Workshop TypeScript ", mes: " Janeiro " },
+    { nome: " Hackathon ", mes: "Março" },
+    { nome: " Confer ê ncia de IA", mes: " Janeiro " }
+];
+const mesDesejado: string = " Janeiro ";
+
+function filtroEventosM(eMeses: Evento[]): Evento[] {
+    return eMeses.filter(evento => evento.mes == mesDesejado);
+}
+
