@@ -8,18 +8,22 @@ function trianguloCentralizado(numeroInteriorPositivo: number) {
     }
 }
 
-// trianguloCentralizado(5);
+trianguloCentralizado(5);
 
+console.log("")
+console.log("SEPAREITOR")
+console.log("  ")
 // A6 - 2 /* ta quase */
 function trianguloPiramideSimetrica(numeroInteriorPositivo: number) {
-    let espace: string = " ";
+    let vazio: string = " ";
+    let espace: string = " 1";
     let area:string = "1";
 
     for(let i = numeroInteriorPositivo; i >= 0; i--) {
         let distancia:string = "";
-        area = area+espace+area;
+        area = area+espace;
         for(let i2 = i; i2 >= 0; i2--) {
-            distancia = espace+distancia;
+            distancia = vazio+distancia;
         }
         console.log(distancia+area);
         
