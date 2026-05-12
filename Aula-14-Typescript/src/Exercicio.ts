@@ -6,7 +6,7 @@ function calcularMedia(notas: number[]): number {
         for (let i = 0; i < notas.length; i++) {
             let nota = notas[i]
             if (nota) {
-                soma += nota; // a nota considerada undefined
+                soma += nota; // erro: nota undefined
             }
         }
     } catch {
@@ -42,14 +42,29 @@ class Pessoa {
     ) { }
 
     validarNome(): void {
-        // implementar
+        if (this.nome.charAt(0) === " " || this.nome.charAt(this.nome.length - 1) === " ") {
+            throw new Error("O nome possui espaços no início ou fim.");
+        }
+        this.nome = this.nome.toUpperCase();
     }
 
     validarEmail(): void {
-        // implementar
+        if (this.email.indexOf("@") === -1 || this.email.indexOf(".com") === -1) {
+            throw new Error("Email deve conter @ e .com");
+        }
     }
 
     validarDataNascimento(): void {
-        // implementar
+        if (this.dataNascimento.length !== 10 || this.dataNascimento.charAt(2) !== "/" || this.dataNascimento.charAt(5) !== "/") {
+            throw new Error("Formato de data inválido. Use DD/MM/yyyy.");
+        }
+        let anoNascStr = this.dataNascimento.slice(6);
+        let anoNasc = Number(anoNascStr);
+        let anoAtual = new Date().getFullYear();
+        if (anoAtual - anoNasc >= 100) {
+            throw new Error("A pessoa deve ter menos de 100 anos.");
+        }
     }
 }
+
+/* slice, Number(), */

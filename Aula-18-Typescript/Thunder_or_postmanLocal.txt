@@ -1,0 +1,35 @@
+POST
+http://localhost:3000/api/product
+
+{
+"id": 10,
+"nome": "Notebook",
+"preco": 3000,
+"fabricante": {}
+}
+
+----
+
+{
+    "id": 10,
+    "nome": "Notebook",
+    "preco": 3000,
+    "fabricante": {
+        "nome": "Dell",
+        "endereco": {
+            "cidade": "Sao Paulo",
+            "pais": "Brasil"
+        }
+    }
+}
+
+-----
+GET
+http://localhost:3000/api/product/123
+
+{
+    "status": "success",
+    "data": {
+    "id": "123"
+    }
+}
